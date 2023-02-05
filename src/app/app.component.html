@@ -1,5 +1,8 @@
+ <nav mat-tab-nav-bar ngClass="tabs" backgroundColor="primary" color="warn">
+  <a mat-tab-link routerLink="/home"  routerLinkActive="active-link">Home</a>
+  <a mat-tab-link routerLink="/contact" routerLinkActive="active-link">Contact</a>
+</nav>
 
-<div class="content" role="main">
-
-<h1>{{title}}</h1>
-</div>
+<div>
+  <router-outlet></router-outlet>
+</div> 

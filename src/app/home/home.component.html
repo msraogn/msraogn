@@ -1,0 +1,32 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+            <!-- <app-home [homeValue]="tab"></app-home>
+          <app-contact [contactValue]="tab"></app-contact> -->
+            <div *ngIf="tab==='Student'">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <label for="first-name">First Name: </label>
+                        <input id="first-name" type="text" formControlName="firstName">
+                    </div>
+                    <div class="col-xs-9">
+                        <label for="last-name">Last Name: </label>
+                        <input id="last-name" type="text" formControlName="lastName">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="tab==='Details'">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <label for="last-name">Last Name: </label>
+                        <input id="last-name" type="text" formControlName="lastName">
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+
+    <button value="Submit">Submit</button>
+</form>
