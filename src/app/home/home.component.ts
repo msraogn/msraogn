@@ -22,7 +22,7 @@ export class HomeComponent {
   onSubmit() {
     if(this.profileForm.value.firstName === AppSettings.uname && 
         this.profileForm.value.lastName === AppSettings.pwd) {
-          this.router.navigate(['/contact']);
+          this.router.navigate(['/dgnSearch']);
     
     }
   }

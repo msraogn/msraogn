@@ -1,0 +1,19 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmitClick()">
+    <h1 mat-dialog-title>Hi {{data.name}}</h1>
+    <div mat-dialog-content>
+        <p>Add Emp Details</p>
+        <mat-form-field>
+            <mat-label>Design Name</mat-label>
+            <input matInput formControlName="designName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Design Number</mat-label>
+            <input matInput formControlName="designNumber">
+        </mat-form-field>
+
+        <div mat-dialog-actions>
+            <button mat-button (click)="onSubmitClick()">Submit</button>
+        </div>
+    </div>
+</form>

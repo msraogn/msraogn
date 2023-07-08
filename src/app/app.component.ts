@@ -8,5 +8,5 @@ import {FormControl} from '@angular/forms';
 export class AppComponent {
   title = 'ComputerEmbra';
   isCollapsed = true;
-  tabs = ['Home', 'Contact'];  
+  tabs = ['Home', 'DesignDetails'];  
 }
