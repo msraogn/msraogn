@@ -1,29 +1,40 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppSettings } from '../constant';
+import { MyLoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less']
 })
-export class HomeComponent {
-  @Input() homeValue: string='';
+export class HomeComponent implements OnInit {
+  @Input() homeValue: string = '';
   selected = new FormControl(0);
-  tabs = ['Student', 'Details'];  
+  tabs = ['Student', 'Details'];
+  designs: any;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private myLoginService: MyLoginService) { }
   profileForm = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(''),
+    userName: new FormControl(),
+    pwd: new FormControl(''),
   });
 
-  onSubmit() {
-    if(this.profileForm.value.firstName === AppSettings.uname && 
-        this.profileForm.value.lastName === AppSettings.pwd) {
-          this.router.navigate(['/dgnSearch']);
-    
+  ngOnInit() {
+    this.subscribeLoginDetails();
+  }
+
+  subscribeLoginDetails() {
+    this.myLoginService.getData().subscribe(result => {
+      this.designs = result[0];
+    });
+  }
+
+  onLogin() {
+    let firstName = this.designs.find((y: { UName: any; }) => y.UName === this.profileForm.value.userName);
+    let pwd = this.designs.find((y: { Pwd: string; }) => y.Pwd === this.profileForm.value.pwd);
+    if (firstName && pwd) {
+      this.router.navigate(['/dgnSearch']);
     }
   }
 }

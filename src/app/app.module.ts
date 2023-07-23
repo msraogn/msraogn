@@ -31,7 +31,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
   providers: [
     {
       provide: MatDialogRef,
-      useValue: {}
+      useValue: {}      
     },
  ],
   declarations: [ AppComponent, HomeComponent, AddEmpDataComponent ],
