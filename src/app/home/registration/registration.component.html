@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="registerForm">
+      <h2>Registration</h2>
+      <mat-form-field>
+          <input matInput placeholder="First Name" formControlName="firstName" name="firstName" required>
+        <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="errors">
+          <div *ngIf="registerForm.controls['firstName'].errors.required">FirstName is required</div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName" name="lastName" required>
+        <div *ngIf="submitted && registerForm.controls['lastName'].errors" class="errors">
+          <div *ngIf="registerForm.controls['lastName'].errors.required">LastName is required</div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="UserName" formControlName="userName" name="userName" required>
+        <div *ngIf="submitted && registerForm.controls['userName'].errors" class="errors">
+          <div *ngIf="registerForm.controls['userName'].errors.required">UserName is required</div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" name="password" required>
+        <div *ngIf="submitted && registerForm.controls['password'].errors" class="errors">
+          <div *ngIf="registerForm.controls['password'].errors.required">Password is required</div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E Mail" formControlName="email" name="email" required>
+        <div *ngIf="submitted && registerForm.controls['email'].errors" class="errors">
+          <div *ngIf="registerForm.controls['email'].errors.required">Email is required</div>
+        </div>
+      </mat-form-field>
+      <button mat-raised-button class="btn btn-primary space-btns" (click)="onBack()">Back</button>
+      <button mat-raised-button class="btn btn-primary space-btns" (click)="onSubmit()">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

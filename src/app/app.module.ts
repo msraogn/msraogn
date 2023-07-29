@@ -14,6 +14,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import { AddEmpDataComponent } from './contact/popup/add-emp-data/add-emp-data.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { RegistrationComponent } from './home/registration/registration.component';
+import { MatPaginatorModule } from  '@angular/material/paginator';
 
 @NgModule({
   imports:      [ 
@@ -25,6 +27,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
+    MatPaginatorModule,
     BrowserAnimationsModule ],
     exports:[ MatFormFieldModule, MatInputModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -34,7 +37,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
       useValue: {}      
     },
  ],
-  declarations: [ AppComponent, HomeComponent, AddEmpDataComponent ],
+  declarations: [ AppComponent, HomeComponent, AddEmpDataComponent, RegistrationComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

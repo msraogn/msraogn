@@ -11,7 +11,7 @@ import { MyLoginService } from 'src/app/services/login.service';
 export class AddEmpDataComponent {
   empForm = new FormGroup({
     DesignName: new FormControl(''),
-    DesignNumber: new FormControl(''),
+    DesignDescription: new FormControl(''),
   });
   constructor(
     public dialogRef: MatDialogRef<any>,
@@ -19,8 +19,11 @@ export class AddEmpDataComponent {
   ) {}
   
   onSubmitClick(): void {
-    console.log(this.empForm.value);
-    this.myLoginService.insertDesignData(this.empForm.value);
+    this.myLoginService.insertDesignData(this.empForm.value).subscribe((res)=>{
+    if(res){
+      alert('Suceesss');
+    }
+    });
     this.dialogRef.close();
   }
 }

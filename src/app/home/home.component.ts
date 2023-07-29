@@ -36,5 +36,16 @@ export class HomeComponent implements OnInit {
     if (firstName && pwd) {
       this.router.navigate(['/dgnSearch']);
     }
+    else {
+       alert("Invalid credentials");
+     }
+  }
+
+  onClear() {
+    this.profileForm.reset();
+  }
+
+  handleRegister() {
+    this.router.navigate(['/register']);
   }
 }

@@ -5,11 +5,13 @@ import { HomeComponent } from './home/home.component';
 import { DgnSearchComponent } from './contact/dgnSearch.component';
 import { MyLoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistrationComponent } from './home/registration/registration.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'/home', pathMatch:"full"},
   { path:'home', component: HomeComponent},
-  { path:'dgnSearch', component: DgnSearchComponent}
+  { path:'dgnSearch', component: DgnSearchComponent},
+  { path:'register', component: RegistrationComponent}
 ];
 
 @NgModule({
