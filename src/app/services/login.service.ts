@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -29,11 +29,18 @@ export class MyLoginService {
       'Content-Type' : 'application/json',
       'Cache-Control': 'no-cache'
     });
-    // return this.http.post(this.baseURL + 'InsertDesign', book, { headers: httpHeaders }).toPromise()
-    //        .then(this.extractData)
-    //        .catch(this.handleErrorPromise);
     return this.http.post(this.baseURL + 'InsertDesign', book, { headers: httpHeaders });
-  } 
+  }
+
+  deleteDesigns (Id:number):Observable<number>{
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      DesignID: Id,
+    };
+    return this.http.post<number>(this.baseURL + 'deleteDesigns', options);
+  }
 
   insertRegisterData(book:any): Promise<any> {
     let httpHeaders = new HttpHeaders({
@@ -67,6 +74,23 @@ export class MyLoginService {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     return throwError(errorMessage);
+  }
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseURL}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.baseURL}/files`);
   }
 
 }

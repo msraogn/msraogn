@@ -1,6 +1,6 @@
 <form [formGroup]="empForm" (ngSubmit)="onSubmitClick()">
-    <h1 mat-dialog-title>Hi {{data.name}}</h1>
-    <div mat-dialog-content>
+    <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+    <div mat-dialog-content style="width: 100%;">
         <p>Add Emp Details</p>
         <mat-form-field>
             <mat-label>Design Name</mat-label>
@@ -10,6 +10,20 @@
         <mat-form-field>
             <mat-label>Design Number</mat-label>
             <input matInput formControlName="DesignDescription">
+        </mat-form-field>
+
+        <mat-form-field>
+            <div>
+                <mat-toolbar>
+                    <input matInput [value]="selectedFileNames.length ? selectedFileNames : 'Select Images'" />
+                    <button mat-flat-button color="primary" [disabled]="!selectedFiles" (click)="uploadFiles()">
+                        Upload
+                    </button>
+                </mat-toolbar>
+
+                <input type="file" id="fileInput" name="fileInput" accept="image/*" multiple
+                    (change)="selectFiles($event)" />
+            </div>
         </mat-form-field>
 
         <div mat-dialog-actions>

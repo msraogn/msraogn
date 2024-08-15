@@ -16,6 +16,7 @@ import { AddEmpDataComponent } from './contact/popup/add-emp-data/add-emp-data.c
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegistrationComponent } from './home/registration/registration.component';
 import { MatPaginatorModule } from  '@angular/material/paginator';
+import { DesignviewComponent } from './contact/designview/designview.component';
 
 @NgModule({
   imports:      [ 
@@ -37,7 +38,7 @@ import { MatPaginatorModule } from  '@angular/material/paginator';
       useValue: {}      
     },
  ],
-  declarations: [ AppComponent, HomeComponent, AddEmpDataComponent, RegistrationComponent ],
+  declarations: [ AppComponent, HomeComponent, AddEmpDataComponent, RegistrationComponent, DesignviewComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,42 +1,50 @@
-<mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput placeholder="Search columns" (keyup)="applyFilter($event)" #input>
-</mat-form-field>
+<marquee class="bg-div"> Welcomes to Manne Venkata Divya Designs... </marquee>
 
-<div class="example-button-row">
+<div class="d-flex justify-content-center mb-2">
+    <div class="form-outline me-3">
+        <input matInput placeholder="Search columns" (keyup)="applyFilter($event)" #input>
+    </div>
     <button mat-button color="primary" class="add" (click)="openDialog('0ms', '0ms')">Add</button>
 </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container> -->
-
-    <!-- Name Column -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort #empTbSort="matSort">
+    <ng-container matColumnDef="DesignID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Design ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.DesignID}} </td>
+    </ng-container>
+    
     <ng-container matColumnDef="DesignName">
-        <th mat-header-cell *matHeaderCellDef> DesignName </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Design Name </th>
         <td mat-cell *matCellDef="let element"> {{element.DesignName}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="DesignDescription">
-        <th mat-header-cell *matHeaderCellDef> DesignDescription </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Design Description </th>
         <td mat-cell *matCellDef="let element"> {{element.DesignDescription}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <!-- <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container> -->
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let element">   
+            <a data-toggle="tooltip" (click)="deleteClick(element.DesignID)" title="View Designs"  class="btn btn-info" data-original-title="View">
+                <i class="material-icons">delete</i></a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Icon">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let element">   
+            <a data-toggle="tooltip" (click)="viewClick(element)" title="View Designs"  class="btn btn-info" data-original-title="View">
+                <span class="material-icons">visibility_off</span></a>
+        </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let emprow; columns: displayedColumns;"></tr>
+
 </table>
 
 <div style="padding-top:30px">
     <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5,10,15]"><mat-paginator>
-<div>
+            <div>

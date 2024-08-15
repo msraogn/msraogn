@@ -24,6 +24,7 @@
     "bootstrap": "^5.2.3",
     "bootswatch": "4.5.0",
     "core-js": "3.6.5",
+    "material-design-icons": "^3.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

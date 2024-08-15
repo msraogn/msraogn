@@ -6,12 +6,14 @@ import { DgnSearchComponent } from './contact/dgnSearch.component';
 import { MyLoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './home/registration/registration.component';
+import { DesignviewComponent } from './contact/designview/designview.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'/home', pathMatch:"full"},
   { path:'home', component: HomeComponent},
   { path:'dgnSearch', component: DgnSearchComponent},
-  { path:'register', component: RegistrationComponent}
+  { path:'register', component: RegistrationComponent},
+  { path: 'designview/:p1', component:DesignviewComponent}
 ];
 
 @NgModule({
