@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyLoginService } from '../services/login.service';
+import { HomeService } from '../store/services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   tabs = ['Student', 'Details'];
   designs: any;
 
-  constructor(private router: Router, private myLoginService: MyLoginService) { }
+  constructor(private router: Router, private myLoginService: HomeService) { }
   profileForm = new FormGroup({
     userName: new FormControl(),
     pwd: new FormControl(''),

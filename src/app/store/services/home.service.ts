@@ -2,10 +2,10 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders, HttpRequest } fr
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { DesignDetails, LoginDetails } from '../constant/commonFiles';
+import { DesignDetails, LoginDetails } from '../models/home.model';
 
 @Injectable()
-export class MyLoginService {
+export class HomeService {
   baseURL: string = "http://localhost:5000/";
 
   constructor(private http: HttpClient) { }
@@ -92,5 +92,4 @@ export class MyLoginService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseURL}/files`);
   }
-
 }

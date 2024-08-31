@@ -5,11 +5,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { AddEmpDataComponent } from './popup/add-emp-data/add-emp-data.component';
-import { MyLoginService } from '../services/login.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import {MatSortModule} from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { HomeService } from '../store/services/home.service';
 
 @Component({
   selector: 'app-dgnSearch',
@@ -28,9 +28,12 @@ export class DgnSearchComponent implements OnInit {
   @ViewChild(MatPaginator, { static:  true }) paginator!: MatPaginator;
   @ViewChild('empTbSort') empTbSort = new MatSort();
 
-  constructor(public dialog: MatDialog, private router: Router, private myLoginService:MyLoginService){
+  constructor(public dialog: MatDialog, private router: Router, private myLoginService: HomeService){
   }
-
+  title = 'ComputerEmbra';
+  isCollapsed = true;
+  tabs = ['Home', 'DesignDetails'];  
+  
   ngOnInit() {
     this.subscribeGetDesignsDetails()
   }

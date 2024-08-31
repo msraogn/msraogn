@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyLoginService } from 'src/app/services/login.service';
+import { HomeService } from '../../store/services/home.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private myLoginService: MyLoginService, 
+  constructor(private formBuilder: FormBuilder, private myLoginService: HomeService, 
     private router: Router) { }
 
   ngOnInit() {

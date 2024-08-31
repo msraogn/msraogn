@@ -31,8 +31,8 @@ import { DesignviewComponent } from './contact/designview/designview.component';
     MatPaginatorModule,
     BrowserAnimationsModule ],
     exports:[ MatFormFieldModule, MatInputModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    providers: [
     {
       provide: MatDialogRef,
       useValue: {}      

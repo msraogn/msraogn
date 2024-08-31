@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { MyLoginService } from 'src/app/services/login.service';
+import { HomeService } from 'src/app/store/services/home.service';
 
 @Component({
   selector: 'app-add-emp-data',
@@ -24,7 +24,7 @@ export class AddEmpDataComponent {
   imageInfos?: Observable<any>;
   constructor(
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private myLoginService: MyLoginService
+    @Inject(MAT_DIALOG_DATA) public data: any, private myLoginService: HomeService
   ) { }
 
   onSubmitClick(): void {
